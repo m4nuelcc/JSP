@@ -10,6 +10,9 @@
 </head>
 <body>
 
+<! IMPORTAR CLASES DE JAVA> 
+
+<%@ page import="java.sql.*" %>
 
 	<%
 	// GUARDAMOS EN VARIABLES LOS VALORES DEL FORMULARIO
@@ -30,10 +33,13 @@
 	
 	Class.forName("com.mysql.jdbc.Driver");
 
-	java.sql.Connection miConexion = java.sql.DriverManager
+// 	java.sql.Connection miConexion = java.sql.DriverManager
+// 			.getConnection("jdbc:mysql://localhost:3306/proyecto_jsp?useSSL=false", "root", "root");
+
+	Connection miConexion = java.sql.DriverManager
 			.getConnection("jdbc:mysql://localhost:3306/proyecto_jsp?useSSL=false", "root", "root");
 
-	java.sql.Statement miStatement = miConexion.createStatement();
+	Statement miStatement = miConexion.createStatement();
 
 	String instruccionSql = "INSERT INTO usuarios (Nombre, Apellido, Usuario, Contrasena, Pais, Tecnologia) VALUES( '"
 			+ nombre + "','" + apellido + "','" + usuario + "','" + contra + "','" + pais + "','" + tecno + "')";
