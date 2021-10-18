@@ -44,6 +44,20 @@
 <ol>
 
 <% 
+	List<String> Listaelementos = (List<String>) session.getAttribute("miselementos");
+
+	
+	
+	if (Listaelementos==null){
+		
+		Listaelementos = new ArrayList<String>();
+		
+		session.setAttribute("miselementos", Listaelementos);
+		
+		
+		
+	}
+
 
 	String[] seleccionado = request.getParameterValues("articulos");
 
@@ -51,8 +65,16 @@
 		
 		for(String elemento: seleccionado){
 			
-			out.println("<li>" + elemento + "</li>");
+			Listaelementos.add(elemento);
+			
+			//out.println("<li>" + elemento + "</li>");
 		}
+		
+	}
+	
+	for(String elementos: Listaelementos){
+		
+		out.println("<li>" + elementos + "</li>");
 		
 	}
 
