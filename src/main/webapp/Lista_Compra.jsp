@@ -44,6 +44,9 @@
 <ol>
 
 <% 
+	
+	//creacion de una sesion para que se agregen mas elementos al carro y no se borren al darle enviar
+	
 	List<String> Listaelementos = (List<String>) session.getAttribute("miselementos");
 
 	
